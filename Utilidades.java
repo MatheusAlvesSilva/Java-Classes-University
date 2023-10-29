@@ -197,6 +197,180 @@ public int menu(Scanner scan) {
         } while (dec > 0);
         System.out.println(bin);
     }
+
+    public void Exercicio_11(Scanner scan) {
+        int max = 0;
+        int min = 0;
+        System.out.println("Introduza limite:");
+        int lim = scan.nextInt();
+        int total = lim;
+        int soma = 0;
+        int prim = 1;
+
+        while (lim>0){
+            System.out.println("Introduza Proximo numero:");
+            int num = scan.nextInt();
+            if (prim == 1) {
+                max=num;
+                min=num;
+                prim=0;
+            } else if (max<num){
+                 max = num;
+            } else if (min>num) {
+                 min=num;
+            }
+            soma += num;
+            lim --;
+
+        }
+        int med=soma/total;
+        System.out.printf("Min %d, Max%d, Soma %d, Media %d", min, max,soma, med);
+    }
+
+
+    public void Exercicio_12(Scanner scan) {
+        System.out.println("introduza número");
+        int num;
+        int rlst = 0;
+        num = scan.nextInt();
+        int original = num;
+
+        if (num>0) {
+            rlst = 0;
+
+        } do {
+            int r = num % 10;
+            num = num / 10;
+            rlst = rlst * 10 +r;
+        } while (num>0);
+         if (rlst==original) {
+             System.out.println("capicua");
+         } else {
+             System.out.println("Não é capicua");
+         };
+    }
+
+    public void Exercicio_13(Scanner scan) {
+        System.out.println("Introduza número:");
+        int n;
+        n = scan.nextInt();
+        int fat=1;
+        while (n>1) {
+            fat *= n;
+            n--;
+        }
+        System.out.printf("Fatorial: %d", fat  );
+    }
+
+    public void Exercicio_14(Scanner scan){
+ // Perguntar ao Gabriel o que é a recursividade
+    }
+
+    public void Exercicio_15(Scanner scan) {
+        System.out.println("Base:");
+        int base;
+        base = scan.nextInt();
+        System.out.println("expoente");
+        int expo;
+        expo = scan.nextInt();
+        int pot = 1;
+        while (expo>0) {
+            pot *=base;
+            expo--;
+        } if (expo==0) {
+            System.out.printf("Potencia: %d", pot);
+        } else {
+            System.out.println("Erro");
+        }
+    }
+
+    public void Exercicio_16(Scanner scan) {
+        System.out.println("Introduza a:");
+        int r;
+        int maior;
+        int menor;
+        int a;
+        a = scan.nextInt();
+        System.out.println("Introduza b:");
+        int b;
+        b = scan.nextInt();
+        if (a>b){
+            maior =a;
+            menor =b;
+        } else {
+            maior=b;
+            menor=a;
+        } do {
+            r= maior % menor;
+            maior = menor;
+        } while (menor == r);
+        System.out.printf("Maior: %d", maior);
+    }
+
+    public void Exercicio_17(Scanner scan) {
+        System.out.println("Quantos Euros:");
+        int euros = scan.nextInt();
+        int quoc, r, s5=0, s3=0;
+        if(euros>8) {
+            quoc= euros/8;
+            r=euros%8;
+            switch (r) {
+                case 0: s3=quoc;s5=quoc;break;
+                case 1: s3=quoc+2;s5=quoc-1;break;
+                case 2: s3=quoc-1;s5=quoc+1;break;
+                case 3: s3=quoc+1;s5=quoc;break;
+                case 4: s3=quoc+3;s5=quoc-1;break;
+                case 5: s3=quoc;s5=quoc+1;break;
+                case 6: s3=quoc+2;s5=quoc+2;break;
+                case 7: s3=quoc-1;s5=quoc+2;break;
+                //default: s3=0; s5=0; break;
+            }
+        } else {
+            if(euros==3){s3=1;s5=0;}
+            else if(euros==5) {s3=0; s5=1;}
+            else if(euros==6) {s3=2; s5=0;}
+            else System.out.println("\r \n Quantia Inválida :: Devolução");
+        }
+        System.out.printf("selos de três %d Selos de cinco %d", s3, s5);
+    }
+
+
+    public void Exercicio_18(Scanner scan) {
+        System.out.println("Introduza número");
+        int num;
+        int r;
+        int quoc;
+        num = scan.nextInt();
+        int div = 2;
+        do {
+            r=num%div;
+            quoc = num/div;
+            div ++;
+        } while (r!=0 && quoc >= div);
+        if (num==2 ||  r!=0) {
+            System.out.println("True");
+        } else System.out.println("False");
+    }
+
+    public void Exercicio_19(Scanner scan) {
+        System.out.println("Limite:");
+        int lim = scan.nextInt();
+        int num = 2;
+
+        while (lim > 0) {
+            boolean isPrime = true;
+
+            for (int div = 2; div <= Math.sqrt(num); div++) {
+                if (num % div == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.printf("%d: ", num);
+                lim--;
+            }
+            num++;
+        }
+    }
 }
-
-
